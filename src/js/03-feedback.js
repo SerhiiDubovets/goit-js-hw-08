@@ -1,6 +1,6 @@
 import throttle from 'lodash.throttle';
 
-const form = document.querySelector('form');
+const form = document.querySelector('.feedback-form');
 const input = document.querySelector('input');
 const textarea = document.querySelector('textarea');
 const KEY_INPUT = 'feedback-form-state';
@@ -9,7 +9,7 @@ populateTextarea();
 
 const formDate = {};
 
-input.addEventListener('submit', onFormSabmit);
+form.addEventListener('submit', onFormSabmit);
 textarea.addEventListener('input', throttle(onTextareaInput, 500));
 form.addEventListener('input', e => {
   formDate[e.target.name] = e.target.value;
