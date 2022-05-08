@@ -7,10 +7,10 @@ const KEY_INPUT = 'feedback-form-state';
 
 populateTextarea();
 
-const formDate = {};
+const formDate = JSON.parse(localStorage.getItem(KEY_INPUT)) || {};
 
 form.addEventListener('submit', onFormSabmit);
-textarea.addEventListener('input', throttle(onTextareaInput, 500));
+form.addEventListener('input', throttle(onTextareaInput, 500));
 form.addEventListener('input', e => {
   formDate[e.target.name] = e.target.value;
   console.dir(formDate);
